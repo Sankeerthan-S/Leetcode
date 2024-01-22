@@ -1,0 +1,22 @@
+class Solution {
+    public boolean judgeSquareSum(int c) {
+     long small=0;
+     long large=(long)Math.sqrt(c);
+    while(small<=large)
+    {
+        if(small*small+large*large==c)
+        {
+            return true;
+        }
+        else if(small*small+large*large<c)
+        {
+            small++;
+        }
+        else
+        {
+            large--;
+        }
+    }
+    return false;
+    }
+}
