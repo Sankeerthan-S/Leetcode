@@ -1,0 +1,17 @@
+class Solution {
+    public int arrayNesting(int[] nums) {
+        Set<Integer> set = new HashSet<>(), visited = new HashSet<>();
+        int max = 0, prev;
+        for (int i = 0; i < nums.length; i++) {
+            prev = i;
+            while (!visited.contains(nums[prev]) && !set.contains(nums[prev])) {
+                set.add(nums[prev]);
+                prev = nums[prev];
+            }
+            max = Math.max(set.size(), max);
+            visited.addAll(set);
+            set.clear();
+        }
+        return max;
+    }
+}
