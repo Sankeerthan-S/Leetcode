@@ -1,0 +1,29 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        int thirdMax=Integer.MIN_VALUE;
+        int count=0;
+        Arrays.sort(nums);
+        if(nums.length==2)
+        return nums[1];
+        for(int i=nums.length-1;i>=1;i--)
+        {
+            if(nums[i]!=nums[i-1])
+            {
+                count++;
+                thirdMax=nums[i];
+            }
+            if(count==3)
+            return thirdMax;
+        }
+        thirdMax=nums[0];
+        count++;
+        if(count==3){
+                   //System.out.println(thirdMax);
+        return thirdMax;
+ 
+        }
+        else
+        return nums[nums.length-1];
+
+    }
+}
